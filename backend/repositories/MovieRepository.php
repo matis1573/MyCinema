@@ -8,13 +8,13 @@ class MovieRepository {
         $this->pdo = $pdo;
     }
 
-    // Récupère tous les films
+
     public function getAll() {
         $stmt = $this->pdo->query("SELECT * FROM movies");
         return $stmt->fetchAll(PDO::FETCH_CLASS, "Movie");
     }
 
-    // Ajoute un film dans la base
+
     public function add(Movie $movie) {
         $stmt = $this->pdo->prepare(
             "INSERT INTO movies (title, description, duration, release_year, genre, director) VALUES (?, ?, ?, ?, ?, ?)"
