@@ -2,41 +2,39 @@
 
 CREATE TABLE movies (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    title varchar (255) not null,
-    desciption text,
-    duration INT not null, note: "Duration in minutes",
-    release_year DATE not null,
-    genre varchar(100),
-    director varchar(100),
-    created_at datetime,
-    updated_at datetime
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    duration INT NOT NULL, -- Duration in minutes
+    release_year DATE NOT NULL,
+    genre VARCHAR(100),
+    director VARCHAR(100),
+    created_at DATETIME,
+    updated_at DATETIME
 );
 
 -- Table : Salles --
 
 CREATE TABLE rooms (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name varchar (100) not null,
-    capacity INT not null,
-    type varchar(100),
-    active BOOLEAN not nul, default: true, note: "Soft delete flag",
-    created_at datetime,
-    updated_at datetime
-)
+    name VARCHAR(100) NOT NULL,
+    capacity INT NOT NULL,
+    type VARCHAR(100),
+    active BOOLEAN NOT NULL DEFAULT TRUE, -- Soft delete flag
+    created_at DATETIME,
+    updated_at DATETIME
+);
 
 -- Table : séances --
 
 CREATE TABLE screenings (
-    id int PRIMARY KEY AUTO_INCREMENT, 
-    movie_id INT not null,
-    room_id INT not null,
-    start_time datetime not null,
-    updated_at datetime
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    movie_id INT NOT NULL,
+    room_id INT NOT NULL,
+    start_time DATETIME NOT NULL,
+    created_at DATETIME,
+    updated_at DATETIME,
 
 
-    CONSTRAINT fk_screenings_movie
-        FOREIGN KEY (movie_id) REFERENCES movies(id),
-
-    CONSTRAINT fk_screenings_room
-        FOREIGN KEY (room_id) REFERENCES rooms(id)
+    CONSTRAINT fk_screenings_movie FOREIGN KEY (movie_id) REFERENCES movies(id),
+    CONSTRAINT fk_screenings_room FOREIGN KEY (room_id) REFERENCES rooms(id)
 );

@@ -7,6 +7,14 @@ require_once 'Movie.php';
 require_once 'MovieRepository.php';
 require_once 'MovieController.php';
 
+require_once 'Room.php';
+require_once 'RoomRepository.php';
+require_once 'RoomController.php';
+
+require_once 'Screening.php';
+require_once 'ScreeningRepository.php';
+require_once 'ScreeningController.php';
+
 
 $request = $_GET['action'] ?? '';
 
@@ -18,6 +26,11 @@ switch ($request) {
 
     case 'list_rooms':
         $controller = new RoomController();
+        $controller->list();
+        break;
+
+    case 'list_screenings':
+        $controller = new ScreeningController();
         $controller->list();
         break;
 
