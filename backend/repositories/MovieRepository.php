@@ -2,26 +2,33 @@
 
 class MovieRepository {
     private $pdo;
+
     public function __construct() {
         global $pdo;
-        $this -> pdo = $pdo;
-    }
-    public function getALL() {
-        $stmt = $this -> pdo -> query("SELECT $ FROM movies");
-        return $stmt ->fetchAll(PDO:: FETCH_CLASS , "Movie");
+        $this->pdo = $pdo;
     }
 
-public function add(Movie $movie) {
-    $stmt = $this ->pdo ->prepare("INSERT INTO movies (title , description , duration ,
-        release_year , genre , director) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt ->execute ([
-        $movie ->title ,
-        $movie ->description ,
-        $movie ->duration ,
-        $movie ->release_year ,
-        $movie ->genre ,
-        $movie ->director
-        ]);
+    // Récupère tous les films
+    public function getAll() {
+        $stmt = $this->pdo->query("SELECT * FROM movies");
+        return $stmt->fetchAll(PDO::FETCH_CLASS, "Movie");
     }
 
+    // Ajoute un film dans la base
+    public function add(Movie $movie) {
+        $stmt = $this->pdo->prepare(
+            "INSERT INTO movies (title, description, duration, release_year, genre, director) VALUES (?, ?, ?, ?, ?, ?)"
+        );
+
+        if (!$stmt->execute([
+            $movie->title,
+            $movie->description,
+            $movie->duration,
+            $movie->release_year,
+            $movie->genre,
+            $movie->director
+        ])) {
+            throw new Exception("Erreur lors de l'ajout du film.");
+        }
+    }
 }

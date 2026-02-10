@@ -2,6 +2,7 @@
 
 class MovieController {
     private $repository;
+    
     public function __construct () {
         $this ->repository = new MovieRepository (); // repository créé par la suite
     }  
