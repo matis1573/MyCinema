@@ -7,12 +7,10 @@ class RoomController {
         $this->repository = new RoomRepository();
     }
 
-    // READ
     public function list() {
         echo json_encode($this->repository->getAll());
     }
 
-    // CREATE
     public function add() {
         $room = new Room();
         $room->name = $_POST['name'];
@@ -21,7 +19,6 @@ class RoomController {
         $this->repository->add($room);
     }
 
-    // UPDATE
     public function update() {
         $room = new Room();
         $room->id = $_POST['id'];

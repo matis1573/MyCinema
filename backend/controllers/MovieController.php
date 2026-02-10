@@ -25,7 +25,6 @@ class MovieController {
         $this->repository->add($movie);
     }
 
-    // UPDATE
     public function update() {
         $movie = new Movie();
         $movie->id = $_POST['id'];
@@ -39,7 +38,6 @@ class MovieController {
         $this->repository->update($movie);
     }
 
-    // DELETE
     public function delete() {
         $this->repository->delete($_POST['id']);
     }

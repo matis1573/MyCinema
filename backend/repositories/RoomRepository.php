@@ -8,13 +8,11 @@ class RoomRepository {
         $this->pdo = $pdo;
     }
 
-    // READ
     public function getAll() {
         $stmt = $this->pdo->query("SELECT * FROM rooms");
         return $stmt->fetchAll(PDO::FETCH_CLASS, "Room");
     }
 
-    // CREATE
     public function add(Room $room) {
         $stmt = $this->pdo->prepare(
             "INSERT INTO rooms (name, capacity) VALUES (?, ?)"
@@ -25,7 +23,6 @@ class RoomRepository {
         ]);
     }
 
-    // UPDATE
     public function update(Room $room) {
         $stmt = $this->pdo->prepare(
             "UPDATE rooms SET name = ?, capacity = ? WHERE id = ?"
@@ -37,7 +34,7 @@ class RoomRepository {
         ]);
     }
 
-    // DELETE
+
     public function delete(int $id) {
         $stmt = $this->pdo->prepare("DELETE FROM rooms WHERE id = ?");
         $stmt->execute([$id]);
