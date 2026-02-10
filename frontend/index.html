@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyCinema Admin</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Gestion Cinéma</h1>
+
+    <!-- 1. FILMS -->
+    <div class="section">
+      <h2>1. Créer un Film</h2>
+      <form id="addMovieForm">
+        <input type="text" name="title" placeholder="Titre du film" required />
+        <input
+          type="number"
+          name="duration"
+          placeholder="Durée (minutes)"
+          required
+        />
+        <input
+          type="number"
+          name="release_year"
+          placeholder="Année de sortie"
+        />
+        <input type="text" name="genre" placeholder="Genre" />
+        <input type="text" name="director" placeholder="Réalisateur" />
+        <button type="submit">Ajouter Film</button>
+      </form>
+
+      <h3>Liste des Films</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Durée</th>
+            <th>Genre</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="moviesList"></tbody>
+      </table>
+    </div>
+
+    <!-- 2. SALLES -->
+    <div class="section">
+      <h2>2. Créer une Salle</h2>
+      <form id="addRoomForm">
+        <input type="text" name="name" placeholder="Nom de la salle" required />
+        <input
+          type="number"
+          name="capacity"
+          placeholder="Capacité (nombre de places)"
+          required
+        />
+        <button type="submit">Ajouter Salle</button>
+      </form>
+
+      <h3>Liste des Salles</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Capacité</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="roomsList"></tbody>
+      </table>
+    </div>
+
+    <!-- 3. SEANCES -->
+    <div class="section">
+      <h2>3. Créer une Séance</h2>
+      <form id="addScreeningForm">
+        <label>Film :</label>
+        <select id="screeningMovie" name="movie_id" required>
+          <option value="">Choisir un film...</option>
+        </select>
+
+        <label>Salle :</label>
+        <select id="screeningRoom" name="room_id" required>
+          <option value="">Choisir une salle...</option>
+        </select>
+
+        <label>Date et Heure :</label>
+        <input type="datetime-local" name="start_time" required />
+
+        <button type="submit">Ajouter Séance</button>
+      </form>
+
+      <h3>Programme des Séances</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Film</th>
+            <th>Salle</th>
+            <th>Date et Heure</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="screeningsList"></tbody>
+      </table>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

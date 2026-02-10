@@ -1,11 +1,11 @@
 -- Table : Films --
 
 CREATE TABLE movies (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(255) NOT NULL,
     description TEXT,
     duration INT NOT NULL, -- Duration in minutes
-    release_year DATE NOT NULL,
+    release_year INT NOT NULL,
     genre VARCHAR(100),
     director VARCHAR(100),
     created_at DATETIME,
@@ -15,7 +15,7 @@ CREATE TABLE movies (
 -- Table : Salles --
 
 CREATE TABLE rooms (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
     capacity INT NOT NULL,
     type VARCHAR(100),
@@ -27,7 +27,7 @@ CREATE TABLE rooms (
 -- Table : séances --
 
 CREATE TABLE screenings (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_id INT NOT NULL,
     room_id INT NOT NULL,
     start_time DATETIME NOT NULL,
