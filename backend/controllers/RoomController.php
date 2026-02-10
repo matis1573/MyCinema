@@ -28,7 +28,7 @@ class RoomController {
         $this->repository->update($room);
     }
 
-    // DELETE
+
     public function delete() {
         $this->repository->delete($_POST['id']);
     }

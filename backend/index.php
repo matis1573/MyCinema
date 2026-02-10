@@ -1,19 +1,20 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-require_once 'database.php';
+require_once 'config/database.php';
 
-require_once 'Movie.php';
-require_once 'MovieRepository.php';
-require_once 'MovieController.php';
+require_once 'models/Movie.php';
+require_once 'repositories/MovieRepository.php';
+require_once 'controllers/MovieController.php';
 
-require_once 'Room.php';
-require_once 'RoomRepository.php';
-require_once 'RoomController.php';
+require_once 'models/Room.php';
+require_once 'repositories/RoomRepository.php';
+require_once 'controllers/RoomController.php';
 
-require_once 'Screening.php';
-require_once 'ScreeningRepository.php';
-require_once 'ScreeningController.php';
+require_once 'models/Screening.php';
+require_once 'repositories/ScreeningRepository.php';
+require_once 'services/ScreeningService.php';
+require_once 'controllers/ScreeningController.php';
 
 $request = $_GET['action'] ?? '';
 
