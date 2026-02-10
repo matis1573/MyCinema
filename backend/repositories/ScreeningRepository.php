@@ -13,7 +13,7 @@ class ScreeningRepository
     public function getAll()
     {
         $stmt = $this->pdo->query("SELECT * FROM screenings");
-        return $stmt->fetchAll(PDO::FETCH_CLASS, "Screening");
+        return $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Screening");
     }
 
 

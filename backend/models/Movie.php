@@ -1,6 +1,7 @@
 <?php
 
-class Movie {
+class Movie
+{
     public $id;
     public $title;
     public $duration;
@@ -8,4 +9,6 @@ class Movie {
     public $release_year;
     public $genre;
     public $director;
+    public $created_at;
+    public $updated_at;
 }
