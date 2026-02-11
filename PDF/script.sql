@@ -4,7 +4,7 @@ CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    duration INT NOT NULL, -- Duration in minutes
+    duration INT NOT NULL,
     release_year INT NOT NULL,
     genre VARCHAR(100),
     director VARCHAR(100),
@@ -19,7 +19,7 @@ CREATE TABLE rooms (
     name VARCHAR(100) NOT NULL,
     capacity INT NOT NULL,
     type VARCHAR(100),
-    active BOOLEAN NOT NULL DEFAULT TRUE, -- Soft delete flag
+    active BOOLEAN NOT NULL DEFAULT TRUE,
     created_at DATETIME,
     updated_at DATETIME
 );

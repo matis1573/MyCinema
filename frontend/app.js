@@ -1,6 +1,5 @@
 const API_URL = "../backend/index.php";
 
-// State to hold data for lookups
 let movies = [];
 let rooms = [];
 
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([loadMovies(), loadRooms()]);
   loadScreenings();
 
-  // Event Listeners for Forms
   document
     .getElementById("addMovieForm")
     .addEventListener("submit", handleAddMovie);
@@ -20,14 +18,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     .addEventListener("submit", handleAddScreening);
 });
 
-/* ========== MOVIES ========== */
-
 async function loadMovies() {
   try {
     const response = await fetch(`${API_URL}?action=list_movies`);
     movies = await response.json();
     renderMovies(movies);
-    updateMovieOptions(); // Update dropdowns
+    updateMovieOptions();
   } catch (error) {
     console.error("Error loading movies:", error);
   }
@@ -63,7 +59,6 @@ async function handleAddMovie(e) {
     if (result.success) {
       e.target.reset();
       loadMovies();
-      // Switch to list view or show success? For now just reload list
     } else {
       alert("Error adding movie");
     }
@@ -89,14 +84,12 @@ async function deleteMovie(id) {
   }
 }
 
-/* ========== ROOMS ========== */
-
 async function loadRooms() {
   try {
     const response = await fetch(`${API_URL}?action=list_rooms`);
     rooms = await response.json();
     renderRooms(rooms);
-    updateRoomOptions(); // Update dropdowns
+    updateRoomOptions();
   } catch (error) {
     console.error("Error loading rooms:", error);
   }
@@ -154,8 +147,6 @@ async function deleteRoom(id) {
   }
 }
 
-/* ========== SCREENINGS ========== */
-
 async function loadScreenings() {
   try {
     const response = await fetch(`${API_URL}?action=list_screenings`);
@@ -170,7 +161,6 @@ function renderScreenings(screeningsList) {
   const tbody = document.getElementById("screeningsList");
   tbody.innerHTML = "";
   screeningsList.forEach((screening) => {
-    // Find movie and room names
     const movie = movies.find((m) => m.id == screening.movie_id) || {
       title: "Unknown Movie",
     };
@@ -227,11 +217,9 @@ async function deleteScreening(id) {
   }
 }
 
-/* ========== HELPERS ========== */
-
 function updateMovieOptions() {
   const select = document.getElementById("screeningMovie");
-  // Save current selection if any
+
   const currentVal = select.value;
 
   select.innerHTML =

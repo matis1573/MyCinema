@@ -20,7 +20,6 @@ $request = $_GET['action'] ?? '';
 
 switch ($request) {
 
-    /* ========== MOVIES ========== */
 
     case 'list_movies':
         (new MovieController())->list();
@@ -42,7 +41,6 @@ switch ($request) {
         break;
 
 
-    /* ========== ROOMS ========== */
 
     case 'list_rooms':
         (new RoomController())->list();
@@ -64,7 +62,6 @@ switch ($request) {
         break;
 
 
-    /* ========== SCREENINGS ========== */
 
     case 'list_screenings':
         (new ScreeningController())->list();

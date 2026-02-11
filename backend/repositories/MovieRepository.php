@@ -8,13 +8,13 @@ class MovieRepository {
         $this->pdo = $pdo;
     }
 
-    // READ
+
     public function getAll() {
         $stmt = $this->pdo->query("SELECT * FROM movies");
         return $stmt->fetchAll(PDO::FETCH_CLASS, "Movie");
     }
 
-    // CREATE
+
     public function add(Movie $movie) {
         $stmt = $this->pdo->prepare(
             "INSERT INTO movies (title, description, duration, release_year, genre, director)
@@ -33,7 +33,7 @@ class MovieRepository {
         }
     }
 
-    // UPDATE
+
     public function update(Movie $movie) {
         $stmt = $this->pdo->prepare(
             "UPDATE movies
@@ -52,7 +52,7 @@ class MovieRepository {
         ]);
     }
 
-    // DELETE
+
     public function delete(int $id) {
         $stmt = $this->pdo->prepare("DELETE FROM movies WHERE id = ?");
         $stmt->execute([$id]);
