@@ -9,17 +9,17 @@ MyCinema est une application web légere conçue pour la gestion complète d'un 
 ### 1. Gestion des Films
 Permet d'ajouter, modifier et supprimer des films avec leurs détails (titre, durée, genre).
 
-![Gestion des Films](assets/film.svg)
+<img width="1080" height="486" alt="Gestion des Films" src="https://github.com/user-attachments/assets/5b9e7461-073c-45f7-8da2-b48d08c93386" />
 
 ### 2. Gestion des Salles
 Permet de configurer les salles de cinéma et leur capacité.
 
-![Gestion des Salles](assets/salle.svg)
+<img width="1081" height="332" alt="Gestion des Salles" src="https://github.com/user-attachments/assets/b059874e-1054-4dc3-b5ba-c713e61fa75e" />
 
 ### 3. Planification des Séances
 Permet de programmer des films dans des salles spécifiques à des horaires donnés.
 
-![Programmation des Séances](assets/seance.svg)
+<img width="1082" height="466" alt="Programmation des Séances" src="https://github.com/user-attachments/assets/379c2f04-09cb-4769-a0b7-2e49fd7eb1dc" />
 
 ## Architecture technique
 
